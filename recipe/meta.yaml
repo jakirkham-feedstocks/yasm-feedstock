@@ -1,21 +1,25 @@
-{% set version = "1.2.0" %}
+{% set version = "1.3.0" %}
 
 package:
   name: yasm
   version: {{ version }}
 
 source:
-  fn: yasm-{{ version }}.tar.gz
-  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}.tar.gz
-  md5: 4cfc0686cf5350dd1305c4d905eb55a6
+  fn: yasm-{{ version }}.tar.gz                                                    # [unix]
+  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}.tar.gz     # [unix]
+  sha1: b7574e9f0826bedef975d64d3825f75fbaeef55e                                   # [unix]
+  fn: yasm.exe                                                                     # [win]
+  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}-win32.exe  # [win32]
+  sha1: 8374a6a1d6a240a3baa771ffd61b3bc096ccd11f                                   # [win32]
+  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}-win64.exe  # [win64]
+  sha1: f7872c6db3b4d93fd5a51717364d438108473149                                   # [win64]
 
 build:
-    number: 0
-    skip: true  # [win]
+  number: 0
 
 requirements:
   build:
-    - python
+    - python  # [unix]
 
 test:
   commands:
@@ -23,6 +27,7 @@ test:
     - vsyasm --help                        # [unix]
     - yasm --help                          # [unix]
     - ytasm /h                             # [unix]
+    - yasm --version                       # [win]
 
 about:
   home: http://www.tortall.net/projects/yasm/
@@ -33,3 +38,4 @@ extra:
   recipe-maintainers:
     - jakirkham
     - ocefpaf
+    - patricksnape
