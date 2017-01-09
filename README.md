@@ -11,6 +11,18 @@ Summary: Yasm is a complete rewrite of the NASM assembler under the "new" BSD Li
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/yasm-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/yasm-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/yasm-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/yasm-feedstock)
+Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/yasm-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/yasm-feedstock/branch/master)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yasm/badges/version.svg)](https://anaconda.org/conda-forge/yasm)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yasm/badges/downloads.svg)](https://anaconda.org/conda-forge/yasm)
+
 Installing yasm
 ===============
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `yasm` available on your platform 
 ```
 conda search yasm --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/yasm-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/yasm-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/yasm-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/yasm-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/yasm-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/yasm-feedstock/branch/master)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yasm/badges/version.svg)](https://anaconda.org/conda-forge/yasm)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/yasm/badges/downloads.svg)](https://anaconda.org/conda-forge/yasm)
 
 
 Updating yasm-feedstock
