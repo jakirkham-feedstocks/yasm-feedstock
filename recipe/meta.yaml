@@ -5,30 +5,34 @@ package:
   version: {{ version }}
 
 source:
-  fn: yasm-{{ version }}.tar.gz                                                    # [unix]
-  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}.tar.gz     # [unix]
-  sha1: b7574e9f0826bedef975d64d3825f75fbaeef55e                                   # [unix]
-  fn: yasm.exe                                                                     # [win]
-  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}-win32.exe  # [win32]
-  sha1: 8374a6a1d6a240a3baa771ffd61b3bc096ccd11f                                   # [win32]
-  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}-win64.exe  # [win64]
-  sha1: f7872c6db3b4d93fd5a51717364d438108473149                                   # [win64]
+  fn: yasm-{{ version }}.tar.gz
+  url: http://www.tortall.net/projects/yasm/releases/yasm-{{ version }}.tar.gz
+  sha1: b7574e9f0826bedef975d64d3825f75fbaeef55e
 
 build:
   number: 0
-  skip: true  # [unix and py3k]
+  skip: true  # [(unix and py3k) or (win and py36)]
+  features:
+    - vc9     # [win and py27]
+    - vc10    # [win and py34]
+    - vc14    # [win and py35]
+    - vc14    # [win and py36]
 
 requirements:
   build:
-    - python  # [unix]
+    - cmake   # [win]
+    - python
 
 test:
+  requires:
+    - python {{ environ['PY_VER'] + '*' }}  # [win]
+
   commands:
-    - test -f ${PREFIX}/lib/libyasm.a      # [unix]
-    - vsyasm --help                        # [unix]
-    - yasm --help                          # [unix]
-    - ytasm /h                             # [unix]
-    - yasm --version                       # [win]
+    - test -f ${PREFIX}/lib/libyasm.a       # [unix]
+    - vsyasm --help                         # [unix]
+    - yasm --help                           # [unix]
+    - ytasm /h                              # [unix]
+    - yasm --version                        # [win]
 
 about:
   home: http://www.tortall.net/projects/yasm/
