@@ -28,7 +28,9 @@ test:
     - python {{ environ['PY_VER'] + '*' }}  # [win]
 
   commands:
-    - test -f ${PREFIX}/lib/libyasm.a       # [unix]
+    - test -f ${PREFIX}/lib/libyasm.a              # [unix]
+    - if not exist %LIBRARY_LIB%\\yasm.lib exit 1  # [win]
+    - if not exist %LIBRARY_BIN%\\yasm.dll exit 1  # [win]
     - vsyasm --help
     - yasm --help
     - ytasm /h
