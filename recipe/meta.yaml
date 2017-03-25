@@ -29,10 +29,10 @@ test:
 
   commands:
     - test -f ${PREFIX}/lib/libyasm.a       # [unix]
-    - vsyasm --help                         # [unix]
-    - yasm --help                           # [unix]
-    - ytasm /h                              # [unix]
-    - yasm --version                        # [win]
+    - vsyasm --help
+    - yasm --help
+    - ytasm /h
+    - yasm --version
 
 about:
   home: http://www.tortall.net/projects/yasm/
